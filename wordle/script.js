@@ -1,10 +1,18 @@
 import { WORDS } from "./words.js";
 
+// Normal is 6, but guessing Dutch words might be a little bit harder. And I want her to succeed every day!
 const NUMBER_OF_GUESSES = 8;
+
+// The code I copied used the color strings to know the status of a letter. Not the best coding, but I don't want to
+// rebuild the entire code. So I just replaced them with constants.
+const CORRECT_LETTER_COLOR = "#538d4e";
+const CORRECT_LETTER_WRONG_LOCATION_COLOR = "#b59f3b";
+const INCORRECT_LETTER = "#3a3a3c";
+
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
-// TODO: change this back.
+// TODO: pick one of the 12 words I have chosen.
 let rightGuessString = 'hello';
 
 console.log(rightGuessString);
@@ -30,11 +38,11 @@ function shadeKeyBoard(letter, color) {
     for (const elem of document.getElementsByClassName("keyboard-button")) {
         if (elem.textContent === letter) {
             let oldColor = elem.style.backgroundColor;
-            if (oldColor === "green") {
+            if (oldColor === CORRECT_LETTER_COLOR) {
                 return;
             }
 
-            if (oldColor === "yellow" && color !== "green") {
+            if (oldColor === CORRECT_LETTER_WRONG_LOCATION_COLOR && color !== CORRECT_LETTER_COLOR) {
                 return;
             }
 
@@ -62,7 +70,7 @@ function checkGuess() {
         guessString += val;
     }
 
-    if (guessString.length != 5) {
+    if (guessString.length !== 5) {
         toastr.error("Not enough letters!");
         return;
     }
@@ -72,12 +80,12 @@ function checkGuess() {
         return;
     }
 
-    var letterColor = ["gray", "gray", "gray", "gray", "gray"];
+    var letterColor = [INCORRECT_LETTER, INCORRECT_LETTER, INCORRECT_LETTER, INCORRECT_LETTER, INCORRECT_LETTER];
 
     //check green
     for (let i = 0; i < 5; i++) {
         if (rightGuess[i] == currentGuess[i]) {
-            letterColor[i] = "green";
+            letterColor[i] = CORRECT_LETTER_COLOR;
             rightGuess[i] = "#";
         }
     }
@@ -85,12 +93,12 @@ function checkGuess() {
     //check yellow
     //checking guess letters
     for (let i = 0; i < 5; i++) {
-        if (letterColor[i] == "green") continue;
+        if (letterColor[i] == CORRECT_LETTER_COLOR) continue;
 
         //checking right letters
         for (let j = 0; j < 5; j++) {
             if (rightGuess[j] == currentGuess[i]) {
-                letterColor[i] = "yellow";
+                letterColor[i] = CORRECT_LETTER_WRONG_LOCATION_COLOR;
                 rightGuess[j] = "#";
             }
         }

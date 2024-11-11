@@ -1,10 +1,11 @@
 import { WORDS } from "./words.js";
 
-const NUMBER_OF_GUESSES = 6;
+const NUMBER_OF_GUESSES = 8;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
-let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)];
+// TODO: change this back.
+let rightGuessString = 'hello';
 
 console.log(rightGuessString);
 
@@ -44,7 +45,7 @@ function shadeKeyBoard(letter, color) {
 }
 
 function deleteLetter() {
-    let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
+    let row = document.getElementsByClassName("letter-row")[NUMBER_OF_GUESSES - guessesRemaining];
     let box = row.children[nextLetter - 1];
     box.textContent = "";
     box.classList.remove("filled-box");
@@ -53,7 +54,7 @@ function deleteLetter() {
 }
 
 function checkGuess() {
-    let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
+    let row = document.getElementsByClassName("letter-row")[NUMBER_OF_GUESSES - guessesRemaining];
     let guessString = "";
     let rightGuess = Array.from(rightGuessString);
 
@@ -129,7 +130,7 @@ function insertLetter(pressedKey) {
     }
     pressedKey = pressedKey.toLowerCase();
 
-    let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
+    let row = document.getElementsByClassName("letter-row")[NUMBER_OF_GUESSES - guessesRemaining];
     let box = row.children[nextLetter];
     animateCSS(box, "pulse");
     box.textContent = pressedKey;

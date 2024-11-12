@@ -1,4 +1,5 @@
-import { WORDS } from "./words.js";
+import {WORDS} from "./words.js";
+import {DAY, IS_IN_PROGRESS} from "../day.js"
 
 // Normal is 6, but guessing Dutch words might be a little bit harder. And I want her to succeed every day!
 const NUMBER_OF_GUESSES = 8;
@@ -12,10 +13,23 @@ const INCORRECT_LETTER = "#3a3a3c";
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
-// TODO: pick one of the 12 words I have chosen.
-let rightGuessString = 'hello';
 
-console.log(rightGuessString);
+const ANSWERS = [
+    'begin',
+    'schat',
+    'geven',
+    'afwas',
+    'bezig',
+    'samen',
+    'kwets',
+    'balen',
+    'hopen',
+    'hecht',
+    'ruzie',
+    'klaar',
+]
+
+let rightGuessString = IS_IN_PROGRESS ? ANSWERS[DAY - 1] : 'error'
 
 function initBoard() {
     let board = document.getElementById("game-board");
@@ -117,7 +131,7 @@ function checkGuess() {
     }
 
     if (guessString === rightGuessString) {
-        setTimeout(() => {window.location.href = "../compliments/"}, 2000)
+        setTimeout(() => {window.location.href = "../compliments/" + window.location.search}, 2000)
         guessesRemaining = 0;
         return;
     } else {
@@ -126,7 +140,7 @@ function checkGuess() {
         nextLetter = 0;
 
         if (guessesRemaining === 0) {
-            setTimeout(() => {window.location.href = "../"}, 2000)
+            setTimeout(() => {window.location.href = "../" + window.location.search }, 2000)
         }
     }
 }

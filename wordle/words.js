@@ -1,4 +1,6 @@
 export const WORDS = [
+    // Added error, because this is the word that is set whenever the challenge is not in progress.
+    'error',
     'aagje',
     'aaien',
     'aapje',

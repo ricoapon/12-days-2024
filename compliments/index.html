@@ -22,7 +22,9 @@
     <h1 x-text="'Day ' + day">Day 1</h1>
     <template x-if="day == 1">
         <p>
-            You are the most loving girlfriend I have ever had.
+            You got through your first day! I am proud of you. I am always amazed by how good your Dutch is. You already
+            know quite a bit. You are much better than you give yourself credit for. Let's practice some more the
+            next 11 days!
         </p>
     </template>
     <template x-if="day == 2">
@@ -81,8 +83,8 @@
                 You are the most loving girlfriend I could wish for. I am ready now. I want to buy a house together and live
                 with you. Do you still want to?
             </p>
-            <a x-on:click="showFinalMessage = true" class="btn btn-primary w-100 mb-1">Yes</a>
-            <a x-on:click="showFinalMessage = true" class="btn btn-primary w-100">Yes</a>
+            <a x-on:click="showFinalMessage = true" class="btn btn-success w-100 mb-1">Yes</a>
+            <a x-on:click="showFinalMessage = true" class="btn btn-success w-100">Yes</a>
         </div>
     </template>
     <div x-show="showFinalMessage">

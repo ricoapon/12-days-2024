@@ -1,7 +1,7 @@
 // This variable represents the day of the 12-day period. If it is 0, it hasn't started yet. If it is 13, it has finished.
 // The values 1 to 12 represent the 12 possible days.
-export let DAY = 0;
-export let IS_IN_PROGRESS;
+let DAY = 0;
+let IS_IN_PROGRESS;
 
 const d = new Date();
 if (d.getFullYear() === 2024 && d.getMonth() === 12) {

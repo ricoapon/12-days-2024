@@ -1,5 +1,4 @@
 import {WORDS} from "./words.js";
-import {DAY, IS_IN_PROGRESS} from "../day.js"
 
 // Normal is 6, but guessing Dutch words might be a little bit harder. And I want her to succeed every day!
 const NUMBER_OF_GUESSES = 8;

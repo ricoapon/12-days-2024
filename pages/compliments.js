@@ -1,3 +1,5 @@
+// noinspection HtmlUnknownAttribute
+
 import {page} from "../state.js";
 import firstComponent from "../components/first-component.js";
 import {DAY, IS_IN_PROGRESS} from "../components/day.js";
@@ -14,8 +16,8 @@ export default {
         return {page, day, isInProgress, showFinalMessage}
     },
     template: `
-        <!--suppress ALL -->
-<p v-if="day == 1">
+    <div class="text-center">
+        <p v-if="day == 1">
             You are the most loving girlfriend I have ever had.
         </p>
         <p v-else-if="day == 2">
@@ -61,5 +63,6 @@ export default {
                 Tell me the answer by kissing the real me!
             </p>
         </div>
+    </div>
     `,
 };

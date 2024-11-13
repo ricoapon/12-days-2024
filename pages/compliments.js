@@ -1,12 +1,10 @@
 // noinspection HtmlUnknownAttribute
 
 import {page} from "../state.js";
-import firstComponent from "../components/first-component.js";
 import {DAY, IS_IN_PROGRESS} from "../components/day.js";
 
 export default {
     name: 'Compliments',
-    components: {firstComponent},
     setup() {
         const {ref} = Vue;
 

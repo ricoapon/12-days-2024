@@ -1,11 +1,12 @@
 import compliments from "./pages/compliments.js";
 import home from "./pages/home.js";
+import wordle from "./pages/wordle.js";
 import {page} from './state.js';
 import {DAY, IS_IN_PROGRESS} from "./components/day.js";
 
 export default {
     name: 'App',
-    components: {home, compliments},
+    components: {home, compliments, wordle},
     setup() {
         const day = DAY
         const isInProgress = IS_IN_PROGRESS

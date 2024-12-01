@@ -15,3 +15,30 @@
         transform: scale(1);
     }
 }
+
+
+.keyboard-key {
+    border: none;
+    margin: 2px;
+}
+.letter {
+    margin: 2px;
+}
+.letter-correct, .keyboard-key-correct {
+    background-color: #538d4e;
+    border-color: #538d4e;
+}
+.letter-almost-correct, .keyboard-key-almost-correct {
+    background-color: #b59f3b;
+    border-color: #b59f3b;
+}
+.letter-incorrect, .keyboard-key-incorrect {
+    background-color: #3a3a3c;
+    border-color: #3a3a3c;
+}
+.letter-no-state-yet {
+    border: none !important;
+}
+.letter-no-letter-no-state {
+    border: 2px solid;
+}

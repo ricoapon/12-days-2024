@@ -2,13 +2,18 @@ import { LetterState} from "../wordle/game.js";
 
 export default {
     name: "Letter",
-    props: ['l'],
+    props: [
+        'l', // The letter containing state and character that should be displayed.
+        'delay', // A value from 0 to 4 indicating how long the delay should be (0 = 0ms, 4 = 1200ms).
+    ],
     setup(props) {
         const {toRef, computed} = Vue;
 
-        const l = toRef(props.l, "content")
+        const delayInMs = props.delay * 300;
+
+        const l = toRef(props, "l")
         const letterClass = computed(() => {
-            switch(props.l.state) {
+            switch(l.value.state) {
                 case LetterState.CORRECT:
                     return 'letter-correct'
                 case LetterState.ALMOST_CORRECT:
@@ -16,16 +21,22 @@ export default {
                 case LetterState.INCORRECT:
                     return 'letter-incorrect'
                 case LetterState.UNKNOWN:
-                    return ''
+                    if (l.value.content !== '') {
+                        return 'letter-no-state-yet'
+                    }
+                    return 'letter-no-letter-no-state'
             }
         })
 
-        return {l, letterClass}
+        return {l, letterClass, delayInMs}
     },
     template: `
-        <div class="text-uppercase fw-bold" style="line-height: 42px; font-size: 40px;">
+        <div class="text-uppercase fw-bold letter"
+             :class="letterClass"
+            style="line-height: 42px; font-size: 40px; width: 45px; height: 45px; transition: all 0.3s;"
+            :style="{transitionDelay: delayInMs + 'ms'}">
         <Transition name="bounce">
-            <div v-show="l != ''">{{ l }}</div>
+            <div v-show="l.content !== ''">{{ l.content }}</div>
         </Transition>
         </div>
     `,

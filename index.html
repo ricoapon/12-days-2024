@@ -22,13 +22,68 @@
     <template x-if="isInProgress">
         <div>
             <h1 x-text="'Day ' + day">Day 1</h1>
-            <p>
-                This year I will help you learn Dutch! We are going to do this in a playful way. I have recreated
-                Wordle, a game
-                you are probably familiar with. Instead of English words, they are all Dutch words. I have selected a
-                different
-                word every day. Can you guess all of them?
-            </p>
+            <template x-if="day == 1">
+                <p>
+                    This year I will help you learn Dutch! We are going to do this in a playful way. I have recreated
+                    Wordle, a game you are hopefully familiar with. Instead of English words, they are all Dutch words.
+                    I have selected a different word every day. Can you guess all of them?
+                </p>
+            </template>
+            <template x-if="day == 2">
+                <p>
+                    Ready for your second day? You can do it!
+                </p>
+            </template>
+            <template x-if="day == 3">
+                <p>
+                    I hope you think this is as much fun as I had making this. Let's go!
+                </p>
+            </template>
+            <template x-if="day == 4">
+                <p>
+                    It is Sunday. You can take it easy. Take your time. There is no rush today.
+                </p>
+            </template>
+            <template x-if="day == 5">
+                <p>
+                    You probably had a long day at work today. Or are you sneaking this in before work?
+                </p>
+            </template>
+            <template x-if="day == 6">
+                <p>
+                    This is so much fun! I hope you are learning a lot by refreshing your Dutch words.
+                </p>
+            </template>
+            <template x-if="day == 7">
+                <p>
+                    Are you still having fun? It is good to keep practising!
+                </p>
+            </template>
+            <template x-if="day == 8">
+                <p>
+                    I like that you keep coming back to this. Another one!
+                </p>
+            </template>
+            <template x-if="day == 9">
+                <p>
+                    It is weekend for you! Time to relax again. No need to rush.
+                </p>
+            </template>
+            <template x-if="day == 10">
+                <p>
+                    You are back again? You must really love me.
+                </p>
+            </template>
+            <template x-if="day == 11">
+                <p>
+                    We are almost there! Almost!
+                </p>
+            </template>
+            <template x-if="day == 12">
+                <p>
+                    The last day! Are you happy you made it this far? One last time.
+                </p>
+            </template>
             <a onclick="window.location = './wordle/' + window.location.search;" class="btn btn-light w-100">Play</a>
         </div>
     </template>

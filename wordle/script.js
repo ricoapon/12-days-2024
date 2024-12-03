@@ -1,7 +1,7 @@
 import {WORDS} from "./words.js";
 
 // Normal is 6, but guessing Dutch words might be a little bit harder. And I want her to succeed every day!
-const NUMBER_OF_GUESSES = 8;
+const NUMBER_OF_GUESSES = 7;
 
 // The code I copied used the color strings to know the status of a letter. Not the best coding, but I don't want to
 // rebuild the entire code. So I just replaced them with constants.

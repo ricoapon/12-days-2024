@@ -4,8 +4,8 @@ let DAY = 0;
 let IS_IN_PROGRESS;
 
 const d = new Date();
-if (d.getFullYear() === 2024 && d.getMonth() === 12) {
-    DAY = Math.min(14, Math.max(0, d.getDay() - 12))
+if (d.getFullYear() === 2024 && d.getMonth() === 11) {
+    DAY = Math.min(14, Math.max(0, d.getDate() - 12))
 }
 
 IS_IN_PROGRESS = (DAY >= 1 && DAY <= 12)

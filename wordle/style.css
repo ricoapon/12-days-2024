@@ -50,4 +50,6 @@
     text-transform: uppercase;
     border-radius: 4px;
     border: none;
+    /* Safari specific fix. */
+    color: black;
 }
